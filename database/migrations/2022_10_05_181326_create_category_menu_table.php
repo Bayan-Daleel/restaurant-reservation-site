@@ -13,12 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('tables', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
-            $table->integer('guest_number');
-            $table->string('status')->default('available');
-            $table->string('location');
+        Schema::create('category_menu', function (Blueprint $table) {
+            $table->foreignId('category_id')->constrained();
+            $table->foreignId('menu_id')->constrained();
             $table->timestamps();
         });
     }
@@ -30,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('tables');
+        Schema::dropIfExists('category_menu');
     }
 };

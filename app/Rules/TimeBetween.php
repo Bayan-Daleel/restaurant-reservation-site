@@ -32,7 +32,7 @@ class TimeBetween implements Rule
         ,$pickupDate->minute ,$pickupDate->second);
          //resturant is open 
          $earliestTime=Carbon::createFromTimeString('17:00:00');
-         $lastTime=Carbon::createFromTimeString('17:00:00');
+         $lastTime=Carbon::createFromTimeString('23:00:00');
         return $pickTime->between($earliestTime,$lastTime)? true :false;
         }
 
@@ -43,7 +43,7 @@ class TimeBetween implements Rule
      */
     public function message()
     {
-        return 'Please choose time between 17:00:00 and 17:00:00.';
+        return 'Please choose time between 17:00:00 and 23:00:00.';
     }
 
 }
